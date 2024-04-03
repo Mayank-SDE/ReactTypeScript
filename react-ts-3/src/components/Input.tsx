@@ -1,0 +1,19 @@
+import { ComponentPropsWithoutRef, FC } from 'react'
+
+type InputProps = {
+    label: string;
+    id: string;
+    type: 'text' | 'number';
+} & ComponentPropsWithoutRef<'input'>;
+
+
+const Input: FC<InputProps> = ({ label, id, ...props }) => {
+    return (
+        <p>
+            <label htmlFor={id}>{label}</label>
+            <input id={id} {...props} />
+        </p>
+    )
+}
+
+export default Input
